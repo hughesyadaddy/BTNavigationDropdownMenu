@@ -78,6 +78,9 @@ class BTTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         let cell = BTTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Cell", configuration: self.configuration)
         cell.textLabel?.text = self.items[(indexPath as NSIndexPath).row]
         cell.checkmarkIcon.isHidden = ((indexPath as NSIndexPath).row == selectedIndexPath) ? false : true
+        if selectedIndexPath == indexPath.row {
+            cell.textLabel?.textColor = self.configuration.selectedCellTextLabelColor
+        }
         return cell
     }
     
